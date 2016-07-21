@@ -1,7 +1,11 @@
 #!/usr/bin/perl
 
+# Trap signals from Docker, trigger die, which will invoke DESTROY method on SessionWrapper
+# Note 'kill' cannot be trapped, so using 'docker kill' instead of 'docker stop' will leave
+# VMware API sessions open.
 
-$SIG{'INT'} = sub { die; };
+$SIG{'INT'}  = sub { die; };
+$SIG{'TERM'} = sub { die; };
 
 package SessionWrapper {
 
@@ -376,7 +380,7 @@ sub wait_for_updates {
 				$data,
 			);
 
-			$log->info("Processed update version ($version) " . join(", ", map{$_ => $counters->{$_}} keys %$counters));
+			$log->info("Processed update version ($version) " . join(", ", map{qq{$_: $counters->{$_}}} keys %$counters));
 		} until ( $truncated eq "0" );
 
 		$initial = 0;
