@@ -45,7 +45,7 @@ The Docker collection agent runs a Perl process that connects and monitors the V
 }
 ```
 ```
-docker run -d --name vmwrt -v ~/desktop:/opt/vmwrt/etc snitom/vmwrt:latest
+docker run -d --name vmwrt -v ~/vmwrt/etc:/opt/vmwrt/etc snitom/vmwrt:latest
 docker logs -f vmwrt
 ```
 
