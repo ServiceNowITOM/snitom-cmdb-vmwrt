@@ -28,7 +28,7 @@ The Docker collection agent runs a Perl process that connects and monitors the V
 4. Run Docker collection agent.  Specify the parent directory that contains the vmwrt.json file.
 5. Verify Docker collection agent is running.
 
->```json
+```json
 {
 	"servicenow": {
 		"host": "your-instance.service-now.com",
@@ -42,10 +42,12 @@ The Docker collection agent runs a Perl process that connects and monitors the V
 		"pass": "vc.userpass"
 	},
 	...
-}```
->```
+}
+```
+```
 docker run -d --name vmwrt -v ~/desktop:/opt/vmwrt/etc snitom/vmwrt:latest
-docker logs -f vmwrt```
+docker logs -f vmwrt
+```
 
 ## Limitations
 
