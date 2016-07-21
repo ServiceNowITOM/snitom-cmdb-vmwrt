@@ -1,0 +1,148 @@
+{
+	"servicenow": {
+		"host": "your-instance.service-now.com",
+		"user": "instance.username",
+		"pass": "instance.userpass",
+		"path": "/api/snc/vmwrt_cmdb"
+	},
+	"vmware": {
+		"host": "vcenter.localdomain",
+		"user": "vc.username",
+		"pass": "vc.userpass"
+	},
+	"logger": [
+		"log4perl.category = DEBUG, Log",
+		"log4perl.appender.Log = Log::Log4perl::Appender::Screen",
+		"log4perl.appender.Log.layout = Log::Log4perl::Layout::PatternLayout",
+		"log4perl.appender.Log.layout.ConversionPattern = %d{MMM dd HH:mm:ss} %-5p %m{chomp}%n"
+	],
+	"filters": [
+		{
+			"type": "Folder",
+			"properties": [
+				"name", 
+				"parent", 
+				"childEntity", 
+				"childType"
+			]
+		},
+		{
+			"type": "Datacenter",
+			"properties": [
+				"name", 
+				"network", 
+				"vmFolder", 
+				"hostFolder", 
+				"datastore"
+			]
+		},
+		{
+			"type": "Datastore",
+			"properties": [
+				"summary.accessible", 
+				"summary.capacity", 
+				"summary.freeSpace", 
+				"summary.name",
+				"summary.type",
+				"summary.url",
+				"vm",
+				"host",
+				"info",
+				"capability.perFileThinProvisioningSupported"
+			]
+		},
+		{
+			"type": "ClusterComputeResource",
+			"properties": [
+				"summary.numHosts",
+				"summary.totalMemory",
+				"summary.totalCpu",
+				"summary.numEffectiveHosts",
+				"summary.numCpuThreads",
+				"summary.numCpuCores",
+				"summary.effectiveCpu",
+				"summary.effectiveMemory",
+				"parent",
+				"name"
+			]
+		},
+		{
+			"type": "HostSystem",
+			"properties": [
+				"summary.hardware.uuid",
+				"summary.hardware.cpuMhz",
+				"summary.hardware.model",
+				"summary.hardware.memorySize",
+				"summary.hardware.numCpuPkgs",
+				"summary.hardware.numCpuCores",
+				"summary.hardware.vendor",
+				"summary.hardware.cpuModel",
+				"runtime.inMaintenanceMode",
+				"hardware.cpuPkg",
+				"name",
+				"datastore",
+				"vm",
+				"parent",
+				"config.storageDevice"
+			]
+		},
+		{
+			"type": "VirtualMachine",
+			"properties": [
+				"config.hardware.numCPU",
+				"config.hardware.memoryMB",
+				"config.uuid",
+				"config.instanceUuid",
+				"config.files.vmPathName",
+				"config.template",
+				"config.guestId",
+				"runtime.powerState",
+				"name",
+				"config.hardware.device",
+				"network"
+			]
+		},
+		{
+			"type": "Network",
+			"properties": [
+				"name", 
+				"summary.accessible", 
+				"vm", 
+				"host"
+			]
+		},
+		{
+			"type": "DistributedVirtualPortgroup",
+			"properties": [
+				"name", 
+				"summary.accessible", 
+				"vm", 
+				"host"
+			]
+		},
+		{
+			"type": "ResourcePool",
+			"properties": [
+				"name",
+				"owner",
+				"parent",
+				"config.cpuAllocation.limit", 
+                "config.cpuAllocation.reservation", 
+                "config.cpuAllocation.shares.shares", 
+                "config.cpuAllocation.expandableReservation", 
+                "config.memoryAllocation.limit", 
+                "config.memoryAllocation.reservation",
+                "config.memoryAllocation.shares.shares",
+                "config.memoryAllocation.expandableReservation"
+			]
+		}
+	]
+}
+
+
+
+
+
+
+
+
