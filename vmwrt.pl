@@ -376,7 +376,7 @@ sub wait_for_updates {
 				$data,
 			);
 
-			$log->info("Processed update version ($version) " . join(": ", map{$_ => $counters->{$_}} keys %$counters));
+			$log->info("Processed update version ($version) " . join(", ", map{$_ => $counters->{$_}} keys %$counters));
 		} until ( $truncated eq "0" );
 
 		$initial = 0;
