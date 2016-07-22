@@ -68,8 +68,3 @@ Feel free to identify any enhancements that would be useful, the intent of this 
 
 This project is licensed under the Apache License - see the [LICENSE](LICENSE) file for details
 
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
